@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reflected XSS Test</title>
+</head>
+<body>
+    <h1>Arama Sonuçları</h1>
+    <p id="output"></p>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const query = params.get("q");
+        document.getElementById("output").innerHTML = query;
+    </script>
+</body>
+</html>
