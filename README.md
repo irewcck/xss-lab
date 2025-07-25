@@ -67,3 +67,5 @@ Bu projede, Cross-Site Scripting (XSS) açıklarını anlamak ve test etmek amac
 > Bu proje yalnızca eğitim ve bilgi amaçlıdır. Gerçek sistemlerde izinsiz güvenlik testi yapmak **yasalara aykırıdır**.
 
 ---
+![Reflected XSS PortSwigger](ekran%20g%C3%B6r%C3%BCnt%C3%BCleri/reflected-xss-portswigger.png)
+
