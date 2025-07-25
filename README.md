@@ -1,27 +1,43 @@
-# 🕷️ XSS Lab – Web Güvenlik Açığı Çalışmaları
+# 🛡️ XSS Lab – Web Güvenlik Açığı Testleri
 
-Bu projede, Reflected ve Stored XSS açıkları üzerine örnekler, payload testleri ve çözümler yer almaktadır.
+Bu projede, Cross-Site Scripting (XSS) açıklarını anlamak ve test etmek amacıyla hazırladığım senaryolar, payloadlar ve örnekler yer almaktadır.
 
 ---
 
-## 🔍 Amaç
+## 📚 XSS Nedir?
 
-XSS (Cross-site Scripting) açıklarının anlaşılması, örnek senaryolarla denenmesi ve manuel test pratiği kazanılması.
+**XSS (Cross-Site Scripting)**, kötü niyetli bir kullanıcının web sayfasına JavaScript kodu enjekte etmesiyle kullanıcıyı hedef alan bir web güvenlik açığıdır. Üç ana türü vardır:
+
+1. **Reflected XSS**
+2. **Stored (Persistent) XSS**
+3. **DOM-Based XSS**
 
 ---
 
 ## 🧪 Reflected XSS Örnekleri
 
-- `search?q=<script>alert('XSS')</script>`
+- `https://hedefsite.com/search?q=<script>alert('XSS')</script>`
 - `<img src=x onerror=alert('XSS')>`
-- `<svg/onload=alert(1)>`
+- `<svg/onload=alert('Reflected XSS')>`
+
+📝 Açıklama: Sunucuya gönderilen zararlı veri hemen geri yansıtılarak kullanıcı tarayıcısında çalışır.
 
 ---
 
-## 🧠 Stored XSS Notları
+## 🗃️ Stored XSS Örneği
 
-- Yorum alanlarına `<script>` etiketleri girildiğinde tetiklenmesi
-- Kalıcı olarak kaydedilip başka kullanıcıda çalışması
+- `<script>alert('Stored XSS')</script>`
+
+📝 Açıklama: Zararlı içerik sunucuda saklanır, başka kullanıcılar sayfayı ziyaret ettiğinde tetiklenir.
+
+---
+
+## 🔁 DOM-Based XSS Örnekleri
+
+- `<a href="javascript:alert('DOM XSS')">Tıkla</a>`
+- `document.location = "javascript:alert('XSS')"`
+
+📝 Açıklama: Tarayıcıda çalışan JavaScript kodları üzerinden gerçekleşir, sunucuya hiç gitmeyebilir.
 
 ---
 
@@ -29,17 +45,25 @@ XSS (Cross-site Scripting) açıklarının anlaşılması, örnek senaryolarla d
 
 - Burp Suite
 - OWASP Juice Shop
-- DVWA (Damn Vulnerable Web App)
-- Firefox + Add-on (HackBar)
+- DVWA
+- Firefox HackBar eklentisi
+- Chrome Developer Tools
 
 ---
 
-## 🖼️ Ekran Görüntüleri
+## 📂 Klasörler
 
-📂 `screenshots/` klasöründe örnek test çıktılarına yer verilmiştir.
+| Klasör         | Açıklama                                 |
+|----------------|-------------------------------------------|
+| `payloads.txt` | Denediğim tüm XSS payloadlarının listesi |
+| `screenshots/` | Ekran görüntüleri                        |
+| `labs/`        | HTML açık örnek dosyaları (test için)    |
+| `resources.md` | Kaynaklar ve referanslar                 |
 
 ---
 
-## 📌 Notlar
+## ⚠️ Etik Uyarı
 
-Bu çalışma eğitim amaçlıdır. Gerçek sistemlerde izinsiz test yapmak suçtur.
+> Bu proje yalnızca eğitim ve bilgi amaçlıdır. Gerçek sistemlerde izinsiz güvenlik testi yapmak **yasalara aykırıdır**.
+
+---
